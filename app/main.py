@@ -9,6 +9,11 @@ from .config import IMG_WIDTH, IMG_HEIGHT, CLASS_NAMES
 app = FastAPI()
 model = None
 
+
+@app.get("/")
+def home():
+    return {"message": "Waste Classifier API is running 🚀"}
+
 @app.on_event("startup")
 async def startup_event():
     global model
